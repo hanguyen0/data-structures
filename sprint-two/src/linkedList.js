@@ -4,23 +4,13 @@ var LinkedList = function () {
   list.tail = null;
 
   list.addToTail = function (value) {
-    var newNode = Node(value);//{'value': 5, 'next': {value: 4, next : null}}
+    var newNode = Node(value);
     list.tail = newNode;
     if (list.head === null) {
-      list.head = newNode;//{'value': 4, 'next': null}
+      list.head = newNode;
 
     }
     list.head.next = newNode;
-    //{value: 4, next : null}
-    //{'value': 5, 'next': {value: 4, next : null}}
-
-    // var currentNode = head
-
-    //{'value': 1, 'next': null}
-    // console.log('head ', list.head)
-    // console.log('node.next', newNode.next)
-    // console.log("newNode ", newNode)
-    // console.log("tail ", list.tail)
   };
 
   list.removeHead = function () {
@@ -31,20 +21,27 @@ var LinkedList = function () {
   };
 
   list.contains = function (target) {
+    var currentNode = list.head;
+    while (currentNode) {
+      if (currentNode.value === target) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
 
+    return list;
   };
 
-  return list;
-};
+  var Node = function (value) {
+    var node = {};
 
-var Node = function (value) {
-  var node = {};//{'value': 5, 'next': {value: 4, next : null}}
+    node.value = value;
+    node.next = null;
 
-  node.value = value;
-  node.next = null;
-
-  return node;
-};
+    return node;
+  };
 
 /*
  * Complexity: What is the time complexity of the above functions?
