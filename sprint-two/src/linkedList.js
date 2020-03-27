@@ -16,7 +16,7 @@ var LinkedList = function () {
 
     // var currentNode = head
 
-     //{'value': 1, 'next': null}
+    //{'value': 1, 'next': null}
     // console.log('head ', list.head)
     // console.log('node.next', newNode.next)
     // console.log("newNode ", newNode)
@@ -24,10 +24,14 @@ var LinkedList = function () {
   };
 
   list.removeHead = function () {
-
+    if (list.head !== null) {
+      list.head = list.head.next
+    }
+    return list.head.value;
   };
 
   list.contains = function (target) {
+
   };
 
   return list;
