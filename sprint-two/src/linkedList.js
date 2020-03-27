@@ -3,10 +3,16 @@ var LinkedList = function() {
   list.head = null;
   list.tail = null;
 
+  var newNode = Node(value);
   list.addToTail = function(value) {
+    if(Object.keys(newNode.node).length === 0){
+      list.head = newNode.value;
+    }
+      list.tail = newNode.value;
   };
 
   list.removeHead = function() {
+
   };
 
   list.contains = function(target) {
@@ -16,7 +22,7 @@ var LinkedList = function() {
 };
 
 var Node = function(value) {
-  var node = {};
+  var node = {};//{'value': value, 'next': null}
 
   node.value = value;
   node.next = null;
