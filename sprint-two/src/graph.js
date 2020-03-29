@@ -25,7 +25,10 @@ Graph.prototype.contains = function (node) {
 // Removes a node from the graph.
 Graph.prototype.removeNode = function (node) {
   delete this.storage[node];
-  // return node
+
+  for(let n in this.edges){
+    this.removeEdge(n, node)
+  }
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -38,8 +41,9 @@ Graph.prototype.hasEdge = function (fromNode, toNode) {
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function (fromNode, toNode) {
-  this.edges[fromNode] = toNode;
   this.edges[toNode] = fromNode
+  this.edges[fromNode] = toNode;
+
 };
 
 // Remove an edge between any two specified (by value) nodes.
@@ -55,6 +59,10 @@ Graph.prototype.removeEdge = function (fromNode, toNode) {
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function (cb) {
+  for(let n in this.storage) {
+    cb(n)
+  }
+
 };
 
 /*
