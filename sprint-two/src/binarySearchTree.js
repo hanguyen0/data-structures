@@ -5,9 +5,7 @@ var BinarySearchTree = function () {
   binaryST.right = {};
   //accepts a value and places it in the tree in the correct position.
   binaryST.insert = function(value) {
-    if(value > binaryST.left){
-      binaryST.right = value;
-    }
+    var node = BinarySearchTree(value);
 
   }
   //accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
